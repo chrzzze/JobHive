@@ -2,64 +2,57 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'raleway', sans-serif;
   line-height: 1.2;
-  color: #333;
-}
 
-/* ensure root can fill viewport */
-html, body, #root {
-  width: 100%;
 }
-
-/* make the frontpage cover the viewport (adjust if you want to subtract navbar height) */
-.frontpage {
-  min-width: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: 4rem; /* prevents overlap with sticky navbar; tweak as needed */
-  margin: 0 auto;
-}
-
 
 
 /* Navbar Styles */
+
+.navsec {
+  /* background-color: #9db2bf; */
+    background: linear-gradient(#9db2bf 0%, #ced9df 50%, #9db2bf 100%);
+}
 .navbar {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to bottom, #8899a4, rgba(0,0,0,0));
   position: sticky;
   top: 0;
   z-index: 1000;
+  
 }
 
 .nav-container {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items:center;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #2563eb;
+.logo img {
+  height: 3.5rem; 
+  width: auto;
+  display: block;
 }
+
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.7rem;
   list-style: none;
 }
 
 .nav-links a {
+  font-size: 1.1rem;
   text-decoration: none;
-  color: #4b5563;
+  color: #1e2b3c;
   font-weight: 500;
   transition: color 0.3s;
 }
@@ -69,56 +62,55 @@ html, body, #root {
 }
 
 .btn {
-  padding: 0.2rem 0.7rem;
+  padding: 0.4rem 0.7rem;
   border-radius: 10rem;
-  font-weight: 500;
   text-decoration: none;
   cursor: pointer;
 
 }
 
 .btn-signin {
-  border: 2px solid #a2befc;
+  border: 2px solid black;
   background-color: white;
 }
 
 .btn-signin:hover {
-  box-shadow: 0 0 5px, 0 0 5px #374151;
+  border: 2px solid white;
+  box-shadow: 0 0 4px, 0 0 10px white;
 }
 
 
 .btn-signup {
-  background-color: #a2befc;
-  border: 1px solid #a2befc;
+  background-color:#f5be1e;
+  border: 2px solid black;
 }
 
 .btn-signup:hover {
-  background-color: white;
-  border-color: #1d4ed8;
-  box-shadow: 0 0 5px, 0 0 5px #374151;
+  background-color: #f5be1e;
+  border-color: #f5be1e;
+  box-shadow: 0 0 10px, 0 0 10px #f5be1e;
 }
-
-
-
-
-
 
 
 /* frontpage Section */
 .frontpage {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 8rem 2rem;
+  min-height: 100%;
+ 
+
+
+
+  color: black;
+  padding: 6.9rem 1rem;
   text-align: left;
 }
 
 .frontpage-content {
-  max-width: 800px;
+  max-width: 1130px;
   margin: 0 auto;
 }
 
 .frontpage h1 {
-  font-size: 3rem;
+  font-size: 3.7rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
 }
@@ -130,8 +122,8 @@ html, body, #root {
 }
 
 .btn-cta {
-  background-color: white;
-  color: #667eea;
+  background-color: #f5be1e;
+  color: black;
   padding: 1rem 2rem;
   font-size: 1.125rem;
   border-radius: 0.5rem;
@@ -146,13 +138,10 @@ html, body, #root {
 }
 
 
-
-
-
 /* About Section */
 .about {
   padding: 8rem 2rem;
-  background-color: white;
+  /* background-color: #f9fafb; */
 }
 
 .about-content {
@@ -170,17 +159,15 @@ html, body, #root {
 
 
 
-
-
 /* Features Section */
 .features {
   padding: 8rem 2rem;
-  background-color: #f9fafb;
+  /* background-color: white; */
 }
 
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
   margin-bottom: 3rem;
   color: #1f2937;
@@ -191,11 +178,11 @@ html, body, #root {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 2.4rem;
 }
 
 .feature-card {
-  background-color: white;
+  background-color: #eaf2f7;
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -208,7 +195,12 @@ html, body, #root {
 
 .feature-icon {
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+
+}
+
+i {
+  padding-bottom: 1.3rem;
 }
 
 .feature-card h3 {
@@ -237,19 +229,42 @@ html, body, #root {
 
 /* Contact Section */
 .contact {
-  padding: 5rem 2rem;
-  background-color: #f9fafb;
+  padding: 3rem 1.5rem;
+  /* background-color: #f9fafb; */
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+
+.subtitle {
+  text-align: center;
+  color: #4b5563;
+  font-size: 15px;
+  margin-bottom: 1.3rem;
+  line-height: 1.5;
 }
 
 .contact-content {
-  max-width: 600px;
+  max-width: 520px;
   margin: 0 auto;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+
+  box-shadow: 0 0 1px #1f2937, 0 0 10px #1f2937;
+  border-radius: 5%;
+  padding: 2rem 2rem;
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .form-group {
@@ -260,6 +275,7 @@ html, body, #root {
 .form-group label {
   margin-bottom: 0.5rem;
   font-weight: 500;
+  font-size: small;
   color: #374151;
 }
 
@@ -275,20 +291,20 @@ html, body, #root {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #2563eb;
+  border-color: #f5be1e;
 }
 
 .form-group textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 100px;
 }
 
 .btn-submit {
-  background-color: #2563eb;
-  color: white;
-  padding: 0.75rem 2rem;
+  background-color: #f5be1e;
+  color: black;
+  padding: 0.50rem 1.5rem;
   border: none;
-  border-radius: 0.375rem;
+  border-radius: 0.4rem;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -296,17 +312,14 @@ html, body, #root {
 }
 
 .btn-submit:hover {
-  background-color: #1d4ed8;
+  background-color: #f5be1e;
 }
 
 
-
-
-
-/* Footer */
-.footer {
-  background-color: #1f2937;
-  color: white;
-  text-align: center;
-  padding: 1rem;
+.yilo{
+  color: #f5be1e;
+  text-shadow: 1px 1px 2px black
+}
+.gray{
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }

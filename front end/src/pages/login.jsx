@@ -1,3 +1,4 @@
+import ContactForm from '../components/contactform'
 import './login.css'
 
 const Login = () => {
@@ -57,7 +58,10 @@ const Login = () => {
   <footer className="footer">
     <p>&copy; 2025 JobHive. eya cuti.</p>
   </footer>
+    
+    <ContactForm />
     </div>
+
   )
 }
 
