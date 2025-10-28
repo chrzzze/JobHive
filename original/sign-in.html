@@ -4,88 +4,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign In - JobHive</title>
-  <link rel="stylesheet" href="style1.css">
-  <link rel="stylesheet" href="sign-in.css">
+  <link rel="stylesheet" href="landingpage.css">
+  <link rel="stylesheet" href="auth.css">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <section class="navsec">
+ <body>
+  <!-- Navbar -->
+   <section class="navsec">
   <nav class="navbar">
     <div class="nav-container">
-      <div class="logo"><a href="index.html" img src="jobhive logo.png" style="text-decoration: none; color: inherit;">
-        <img src="jobhive logo.png">
-      </a></div>
       <ul class="nav-links">
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#features">Features</a></li>
-        <li><a href="index.html#contact">Contact Us</a></li>
+        <li><a href="index.html#contact">ContactUs</a></li>
         <li><a href="sign-in.html" class="btn btn-signin">Sign In</a></li>
-        <li><a href="sign-up.html" class="btn btn-signup">Create Account</a></li>
+        <li><a href="sign-up.html" class="btn btn-signup">Create account</a></li>
       </ul>
     </div>
   </nav>
-  </section>
+ 
 
-   <!-- Sign In Section  -->
+  <!-- Sign In Section -->
   <section class="auth-section">
-    <div class="auth-container">
-      <div class="auth-card">
-        <h1 class="auth-title">Welcome Back</h1>
-        <p class="auth-subtitle">Sign in your account to continue</p>
-
-        <select name="role" class="gampanin">
-           <option value="role">role</option>
-           <option value="student">student</option>
-           <option value="company">company</option>
-           <option value="admin">admin</option>
-        </select>
-        
-         <select name="level" class="lvl">
-           <option value="Choose">level</option>
-           <option value="shs">shs</option>
-           <option value="college">college</option>
-        </select>
-
-         <select name="programa" class="program">
-           <option value="Choose">program</option>
-           <option value="it">it</option>
-           <option value="hm">hm</option>
-           <option value="tm">tm</option>
-           <option value="ba">ba</option>
-           <option value="cs">cs</option>
-        </select>
-        
-        <form class="auth-form" action="_blank">
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter your password" required>
-          </div>
-          
-          <div class="form-options">
-            <label class="checkbox-label">
-              <input type="checkbox" id="remember">
-              <span>Remember me</span>
-            </label>
-            <a href="#" class="forgot-link">Forgot password?</a>
-          </div>
-          
-          <button href type="submit" class="btn-submit">Sign In</button>
-        </form>
-        
-        <div class="auth-footer">
-          <p>Don't have an account? <a href="sign-up.html" class="auth-link">Create Account</a></p>
-        </div>
+    <!-- Left: Sign-in card -->
+    <div class="auth-card">
+      <div class="auth-logo">
+        <img src="jobhive logo.png" alt="JobHive Logo">
       </div>
+
+      <h1 class="auth-title">Welcome to JobHive</h1>
+      <p class="auth-subtitle">Sign in to continue your career journey</p>
+
+      <form class="auth-form" action="#">
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Email address" required>
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="password" placeholder="Password" required>
+        </div>
+
+        <div class="form-options">
+          <label class="checkbox-label">
+            <input type="checkbox" id="remember">
+            <span>Remember me</span>
+          </label>
+          <a href="resetpass.html" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-submit">Sign in</button>
+
+        <p class="create-text">
+          New to JobHive? <a href="sign-up.html">Create an account</a>
+        </p>
+      </form>
+    </div>
+
+    <!-- Right: Info section -->
+    <div class="info-section">
+      <div class="platform-tag">
+         <img src="jobhive logo.png" alt="JobHive Logo">
+         <span>JobHive Platform</span>
+      </div>
+
+      <h2>Find Your Dream Job Today</h2>
+      <p>Connect with thousands of employers and discover opportunities that match your skills and aspirations.</p>
     </div>
   </section>
-
-   <!-- Footer  -->
-  <footer class="footer">
-    <p>&copy; 2025 JobHive. eya cuti.</p>
-  </footer>
+</section>
 </body>
 </html>
