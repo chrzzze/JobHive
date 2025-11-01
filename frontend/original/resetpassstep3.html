@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset Password - JobHive</title>
+  <link rel="stylesheet" href="landingpage.css">
+  <link rel="stylesheet" href="navbarforall.css">
+  <link rel="stylesheet" href="resetpass-css4allstep.css">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+ <body>
+  <!-- Navbar -->
+   <section class="navsec">
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#contact">ContactUs</a></li>
+        <li><a href="sign-in.html" class="btn btn-signin">Sign In</a></li>
+        <li><a href="sign-up.html" class="btn btn-signup">Create Account</a></li>
+      </ul>
+    </div>
+  </nav>
+ 
+
+  <!-- reset Section -->
+  <section class="reset-section">
+    <!-- Left: reset card -->
+    <div class="reset-card">
+      <div class="website-logo">
+        <a href="index.html#frontpage"><img src="jobhive logo.png" alt="JobHive Logo"></a>
+      </div>
+
+      <h1 class="reset-title">Reset Password</h1>
+      <p class="reset-subtitle">Create your new password.</p>
+
+      <form class="reset-form" action="resetpassstep4.html">
+        <div class="form-group">
+          <input type="password" id="new-pass" name="new_pass" minlength="8" autocomplete="new-pass" placeholder="New Password" required> <!-- palitan ng for verification code  -->
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="confirm-pass" name="confirm_pass" minlength="8" autocomplete="confirm-pass" placeholder="Confirm Password" required> <!-- palitan ng for verification code  -->
+        </div>
+        <button type="submit" class="btn-submit">Reset Password</button>
+
+        <p class="backtosignin-text">
+          <a href="resetpass.html"> didn't received a code?  Use another different email.</a>
+        </p>
+      </form>
+    </div>
+
+    <!-- Right: Info section -->
+    <div class="info-section">
+      <div class="platform-tag">
+         <a href="index.html#frontpage"><img src="jobhive logo.png" alt="JobHive Logo"></a>
+         <span>JobHive Platform</span>
+      </div>
+      <h1>Secure Account Recovery</h1> <!-- try gawin h1  -->
+      <p>Your account security is our priority. We'll help you regain access quickly and safely.</p>
+    </div>
+  </section>
+</section>
+</body>
+</html>
