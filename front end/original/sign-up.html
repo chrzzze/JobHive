@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up - JobHive</title>
-  <!-- <link rel="stylesheet" href="landingpage.css">
-  <link rel="stylesheet" href="sign-up.css"> -->
+  <link rel="stylesheet" href="landingpage.css">
+  <link rel="stylesheet" href="signup.css">
+  <link rel="stylesheet" href="navbarforall.css">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -19,82 +20,55 @@
         <li><a href="index.html#features">Features</a></li>
         <li><a href="index.html#contact">ContactUs</a></li>
         <li><a href="sign-in.html" class="btn btn-signin">Sign In</a></li>
-        <li><a href="sign-up.html" class="btn btn-signup">Create account</a></li>
+        <li><a href="sign-up.html" class="btn btn-signup">Create Account</a></li>
       </ul>
     </div>
   </nav>
  
 
 
-    <!--left: Info section -->
+
+
+      <!-- Sign up Section -->
+  <section class="auth-section">
+        <!--left: Info section -->
     <div class="info-section">
       <div class="platform-tag">
          <img src="jobhive logo.png" alt="JobHive Logo">
          <span>JobHive Platform</span>
       </div>
 
-      <h2>Start Your Career Journey Now!</h2>
+      <h1>Start Your Career Journey Now!</h1>
       <p>Join thousands of professionals who have found their perfect role through JobHive. Your dream job is just few clicks away.</p>
     </div>
-
-      <!-- Sign up Section -->
-  <section class="auth-section">
     <!-- right: Sign-in card -->
     <div class="auth-card">
-      <div class="auth-logo">
-        <img src="jobhive logo.png" alt="JobHive Logo">
+      <div class="website-logo">
+        <a href="index.html#frontpage"><img src="jobhive logo.png" alt="JobHive Logo"></a>
       </div>
 
       <h1 class="auth-title">Join JobHive Now!</h1>
       <p class="auth-subtitle">Create your account and start your journey</p>
 
-      <section class="navsec">
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="logo"><a href="index.html" img src="jobhive logo.png" style="text-decoration: none; color: inherit;">
-        <img src="jobhive logo.png">
-      </a></div>
-      <ul class="nav-links">
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#features">Features</a></li>
-        <li><a href="index.html#contact">Contact Us</a></li>
-        <li><a href="sign-in.html" class="btn btn-signin">Sign In</a></li>
-        <li><a href="sign-up.html" class="btn btn-signup">Create Account</a></li>
-      </ul>
-    </div>
-  </nav>
-  </section>
+      <select id="roleSelect" class="selections">
+         <option value="" disabled selected>Select role</option>
+         <option value="Student">Student</option>
+         <option value="Company">Company</option>
+         <option value="Admin">Admin</option>
+      </select>
 
-   <!-- Sign In Section  -->
-  <section class="auth-section">
-    <div class="auth-container">
-      <div class="auth-card">
-        <h1 class="auth-title">Welcome Back</h1>
-        <p class="auth-subtitle">Sign in your account to continue</p>
+      <select id="levelSelect" class="selections">
+         <option value="" disabled selected>Select level</option>
+         <option value="shs">SHS</option>
+         <option value="college">College</option>
+      </select>
 
-        <select name="role" class="gampanin">
-           <option value="role">role</option>
-           <option value="student">student</option>
-           <option value="company">company</option>
-           <option value="admin">admin</option>
-        </select>
-        
-         <select name="level" class="lvl">
-           <option value="Choose">level</option>
-           <option value="shs">shs</option>
-           <option value="college">college</option>
-        </select>
+      <select id="programSelect" class="selections">
+         <option value="" disabled selected>Select program</option>
+      </select>
 
-         <select name="programa" class="program">
-           <option value="Choose">program</option>
-           <option value="it">it</option>
-           <option value="hm">hm</option>
-           <option value="tm">tm</option>
-           <option value="ba">ba</option>
-           <option value="cs">cs</option>
-        </select>
 
-      <form class="auth-form" action="#">
+      <form class="auth-form" action="">
         <div class="form-group">
           <input type="email" id="email" placeholder="Email address" required>
         </div>
@@ -109,7 +83,7 @@
 
         <div class="form-options">
           <label class="checkbox-label">
-            <input type="checkbox" id="remember">
+            <input type="checkbox" id="remember" required>
             <span>I agree to the Terms of Service and Privacy Policy</span>
           </label>
         </div>
@@ -123,34 +97,50 @@
     </div>
   </section>
 </section>
+
+
+<!-- gawa ni gpt  -->
 <script>
   const roleSelect = document.getElementById('roleSelect');
   const levelSelect = document.getElementById('levelSelect');
   const programSelect = document.getElementById('programSelect');
 
-  // Hide all dependent selects initially
+  // Initially hide level & program selects
   levelSelect.classList.add('hidden');
   programSelect.classList.add('hidden');
 
-  // Step 1: When role is selected
+  // When Role changes
   roleSelect.addEventListener('change', function() {
-    if (roleSelect.value === 'Student') {
+    const role = roleSelect.value;
+
+    if (role === 'Student') {
       levelSelect.classList.remove('hidden');
     } else {
       levelSelect.classList.add('hidden');
       programSelect.classList.add('hidden');
     }
+
+    // Reset selections
     levelSelect.selectedIndex = 0;
     programSelect.selectedIndex = 0;
   });
 
-  // Step 2: When level is selected
+  // When Level changes
   levelSelect.addEventListener('change', function() {
     const level = levelSelect.value;
-    programSelect.innerHTML = '<option value="" disabled selected>Select program</option>'; // reset programs
+
+    // Clear old options
+    programSelect.innerHTML = '';
 
     if (level === 'college') {
-      programSelect.classList.remove('hidden');
+      // Set dynamic placeholder
+      const defaultOpt = document.createElement('option');
+      defaultOpt.textContent = 'Choose your program';
+      defaultOpt.disabled = true;
+      defaultOpt.selected = true;
+      programSelect.appendChild(defaultOpt);
+
+      // College options
       const collegePrograms = [
         'Information Technology',
         'Tourism',
@@ -163,8 +153,17 @@
         opt.textContent = program;
         programSelect.appendChild(opt);
       });
-    } else if (level === 'shs') {
       programSelect.classList.remove('hidden');
+
+    } else if (level === 'shs') {
+      // Set dynamic placeholder
+      const defaultOpt = document.createElement('option');
+      defaultOpt.textContent = 'Choose your strand';
+      defaultOpt.disabled = true;
+      defaultOpt.selected = true;
+      programSelect.appendChild(defaultOpt);
+
+      // SHS strands
       const shsPrograms = ['ITMAWD', 'HUMSS', 'GAS', 'TOPER', 'ABM'];
       shsPrograms.forEach(program => {
         const opt = document.createElement('option');
@@ -172,10 +171,14 @@
         opt.textContent = program;
         programSelect.appendChild(opt);
       });
+      programSelect.classList.remove('hidden');
+
     } else {
       programSelect.classList.add('hidden');
     }
   });
 </script>
+
+
 </body>
 </html>

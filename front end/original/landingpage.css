@@ -17,6 +17,7 @@ body {
 
 .navsec {
   /* background-color: #9db2bf; */
+  
     background: linear-gradient(#9db2bf 0%, #ced9df 50%, #9db2bf 100%);
 }
 .navbar {
@@ -42,20 +43,26 @@ body {
   display: block;
 }
 
+.logo img:hover{
+  transition: 0.2s ease;
+  transform: scale(1.10);
+}
+
 
 .nav-links {
+  list-style: none;
   display: flex;
   align-items: center;
   gap: 1.7rem;
-  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
+
 .nav-links a {
-  font-size: 1.1rem;
   text-decoration: none;
-  color: #1e2b3c;
+  color: #000;
   font-weight: 500;
-  transition: color 0.3s;
 }
 
 .nav-links a:hover {
@@ -63,15 +70,14 @@ body {
 }
 
 .btn {
-  padding: 0.4rem 0.7rem;
-  border-radius: 10rem;
+  border-radius: 20px;
+  padding: 0.5rem 1.2rem;
   text-decoration: none;
-  cursor: pointer;
-
+  font-weight: 600;
 }
 
 .btn-signin {
-  border: 2px solid black;
+  border: 1px solid black;
   background-color: white;
 }
 
@@ -95,10 +101,7 @@ body {
 
 /* frontpage Section */
 .frontpage {
-  min-height: 100%;
- 
-
-
+  height: 100vh;
 
   color: black;
   padding: 6.9rem 1rem;
@@ -141,13 +144,14 @@ body {
 
 /* About Section */
 .about {
-  padding: 8rem 2rem;
+  padding: 12rem 20rem;
+  height: 100vh;
   /* background-color: #f9fafb; */
 }
 
 .about-content {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 100vh;
+  margin: auto;
   text-align: center;
 }
 
@@ -162,7 +166,8 @@ body {
 
 /* Features Section */
 .features {
-  padding: 8rem 2rem;
+  padding: 12rem 2rem;
+    height: 100vh;
   /* background-color: white; */
 }
 
@@ -230,7 +235,8 @@ i {
 
 /* Contact Section */
 .contact {
-  padding: 3rem 1.5rem;
+  padding: 4rem 2rem;
+
   /* background-color: #f9fafb; */
 }
 
@@ -296,7 +302,7 @@ i {
 }
 
 .form-group textarea {
-  resize: vertical;
+  resize: horizontal;
   min-height: 100px;
 }
 
@@ -323,4 +329,12 @@ i {
 }
 .gray{
   text-shadow: 1px 1px 2px white;
+}
+
+.footer{
+  background-color: #8899a4;
+  padding: 1rem 1rem;
+  text-align: center;
+  font-size: small;
+  font-weight: 100;
 }

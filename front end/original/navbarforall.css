@@ -1,0 +1,118 @@
+/* some of the repeating elements are here */
+/* navbar for sign in/up logo css */
+
+/* General Page Styles */
+
+body {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(#9db2bf 0%, #ced9df 50%, #9db2bf 100%);
+
+
+}
+
+/* Navbar */
+.navsec{
+ background: #9db2bf;
+ height: 100vh;
+}
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(to bottom, #8899a4, rgba(0,0,0,0));
+}
+
+.nav-container {
+  display: flex-end;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+/* .logo img {
+  height: 50px;
+} */
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.7rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #4b5563;
+}
+
+.btn {
+  border-radius: 20px;
+  padding: 0.5rem 1.2rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-signin {
+  border: 1px solid #000;
+  color: #000;
+}
+
+.btn-signup {
+  background-color: #f5be1e;
+  color: #000;
+}
+
+.platform-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background-color: rgb(207, 213, 217);
+  border: 1.5px solid rgb(157, 178,191);
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+span{
+  font-size: small;
+}
+
+.platform-tag img {
+  width: 15px;
+  height: 15px;
+}
+
+p, h1, h2, h3{
+  color: #000;
+}
+
+h1{
+  font-size: 3.5rem;
+  font-weight: bolder;
+
+}
+
+
+.website-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.website-logo img {
+  height: 60px;
+  width: auto;
+}
+

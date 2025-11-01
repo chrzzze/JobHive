@@ -12,7 +12,7 @@
 <body>
  <body>
   <!-- Navbar -->
-  <section class="navsec">
+   <section class="navsec">
   <nav class="navbar">
     <div class="nav-container">
       <ul class="nav-links">
@@ -35,17 +35,17 @@
       </div>
 
       <h1 class="reset-title">Reset Password</h1>
-      <p class="reset-subtitle">Enter your email to receive reset instructions.</p>
+      <p class="reset-subtitle">Enter the 6-digit password sent to your email.</p>
 
-      <form class="reset-form" action="resetpassstep2.html">
+      <form class="reset-form" action="resetpassstep3.html">
         <div class="form-group">
-          <input type="email" id="email" placeholder="Email address" required>
+          <input type="text" id="text" placeholder="Verification Code" required> <!-- palitan ng for verification code  -->
         </div>
 
-        <button type="submit" class="btn-submit">Send Verification Code</button>
+        <button type="submit" class="btn-submit">Verify Code</button>
 
         <p class="backtosignin-text">
-          <a href="sign-in.html"> Back to sign-in</a>
+          <a href="resetpass.html"> didn't received a code?  Use another different email.</a>
         </p>
       </form>
     </div>
