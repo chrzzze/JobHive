@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STI Account</title>
+  <link rel="stylesheet" href="cssforall.css">
+  <link rel="stylesheet" href="accountsec.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+          <img src="jobhive logo.png" alt="JobHive Logo">
+      </div>
+      <div class="pic">
+        <img src="profile.png" alt="Profile Picture">
+        <h2>GULFAN, Kitz Mavin</h2>
+        <p>BSIT STUDENT</p>
+      </div>
+
+      <nav class="menu">
+        <a href="homesec.html#home">Home</a>
+        <a href="accountsec.html#account" class="active">Account</a>
+        <a href="pendingappsec.html#pendingapp">Pending Applications</a>
+      </nav>
+      <nav class="menu">
+        <a href="settingssec.html#settings">Settings</a>
+        <a href="index.html">Log out</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="profile-menu" id="#account">
+        <nav class="accmenu">
+        <a href="#profile"class="active"><i class="fa-regular fa-user"></i>Profile</a>
+        <a href="#resume" > <i class="fa-regular fa-file"></i>Manage Resume</a>
+        <a href="#privsec"><i class="fa-solid fa-user-shield"></i>Privacy and Security</a>
+      </nav>
+    </main>
+
+   <aside class="profile-section" id="#profile">
+    <section class="profile-card">
+      <div class="head-text">
+      <h2>Account Details</h2>
+      <p>Manage your JobHive profile.</p>
+    </div>
+          <div class="prof-pic">
+            <img src="profile.png" alt="profile picture">
+            <div class="prof-text">
+            <p>Personalize your account with a photo
+                <br>Your profile photo will appear on others'
+                <br>accounts</p>
+            <button class="btn-upload"> <span class="btn-text">Change photo</span></button>
+           </div>
+ </div>
+
+ <!-- full name  -->
+      <section class="card">
+        <div class="section-header">
+          <span>Personal Information</span>
+          <a href="#">Edit personal information</a>
+        </div>
+        <table class="info-table" >
+          <tbody>
+            <tr>
+              <td class="label">First Name</td>
+              <td class="value"><input type="text" class="info-input" value="Kitz Mavin" disabled></td>
+            </tr>
+            <tr>
+              <td class="label">Middle Name</td>
+              <td class="value"><input type="text" class="info-input" value="Dumanlang" disabled></td>
+            </tr>
+            <tr>
+              <td class="label">Last Name</td>
+              <td class="value"><input type="text" class="info-input" value="Gulfan" disabled></td>
+            </tr>
+            <tr>
+              <td class="label">Location</td>
+              <td class="value"><input type="text" class="info-input" value="Sucat, Muntinlupa City" disabled></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+           <!-- prof info  -->
+      <section class="card">
+        <div class="section-header">
+          <span>Academic Information</span>
+          <a href="#">Edit academic information</a>
+        </div>
+        <table class="info-table" >
+          <tbody>
+            <tr>
+              <td class="label">Program</td>
+              <td class="value"><input type="text" class="info-input" value="Bachelor of Science in Information Technology" disabled></td>
+            </tr>
+            <tr>
+              <td class="label">Academic Level</td>
+              <td class="value"><input type="text" class="info-input" value="Tertiary Level" disabled></td>
+            </tr>
+            <tr>
+              <td class="label">Section</td>
+              <td class="value"><input type="text" class="info-input" value="BSIT311" disabled></td>
+            </tr>
+            <tr>
+              <td class="label">Student ID</td>
+              <td class="value"><input type="text" class="info-input" value="02000350766" disabled></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+           <!-- contact  -->
+          <section class="card" >
+             <div class="section-header">
+              <span>Contact Information</span>
+          <a href="#">Edit contact information</a>
+        </div>
+        <table class="info-table" >
+          <tbody>
+            <tr>
+              <td class="label">School Email Address</td>
+              <td class="value"><input type="text" class="info-input" value="gulfan.350766@alabang.sti.edu.ph" disabled></td>
+            </tr>
+            <tr>
+              <td class="label">Personal Email Address</td>
+              <td class="value"><input type="text" class="info-input" value="kitz.gulfan@gmail.com" disabled></td>
+            </tr>
+            <tr>
+              <td class="label">Phone Number</td>
+              <td class="value"><input type="text" class="info-input" value="+63 912-345-6789" disabled></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+         
+        </section>
+    </aside>
+</body>
+</html>
