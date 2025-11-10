@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+body {
+    background-color: #eef2f6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    width: 100%;
+    height: 100vh;
+    background: #ced9df;
+}
+
+.app-card {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 3px 3px 5px rgb(97, 106, 118);
+    background: radial-gradient(circle at 50% 50% , #ced9ce, #9db2bf);
+}
+
+.card-left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 1rem;
+}
+
+.company-logo img{
+    height: 70px;
+    width: 70px;
+    margin-left: 1rem;
+    border-radius: 50%;
+}
+
+
+.card-info {
+    flex: 1;
+}
+
+.card-title {
+    font-size: 17px;
+    font-weight: bolder;
+    color: rgb(27, 40, 58);
+}
+
+.card-subtitle {
+    font-size: 12px;
+    color: rgb(39, 55, 77);
+    margin-bottom: 5px;
+}
+
+.card-meta {
+    font-size: 12px;
+    color: rgb(39, 55, 77);
+}
+
+.card-meta span {
+    margin-right: 20px;
+}
+
+
+/* default  */
+
+.card-subtitle-def{
+    font-size: 12px;
+    color: rgb(39, 55, 77);
+}
+.card-loc{
+    font-size: 12px;
+    color: rgb(39, 55, 77);
+    margin-bottom: 5px;
+}
+
+
+.card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    padding-right: 1rem;
+
+}
+
+.status-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.badge-review {
+    background-color: rgb(152, 157, 159);
+    color: rgb(39, 55, 77);
+    font-size: 12px;
+    border-radius: 1rem;
+}
+
+.badge-interview {
+    background-color: rgb(211, 192, 118);
+    color: rgb(39, 55, 77);
+    font-size: 12px;
+    border-radius: 1rem;
+}
+
+.badge-default {
+    background-color: rgb(152, 157, 159);
+    color: rgb(39, 55, 77);
+    font-size: 12px;
+    border-radius: 1rem;
+}
+
+.view-details {
+    font-size: 12px;
+    color: rgb(39, 55, 77);
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+}
+
+.view-details:hover {
+    color: rgb(27, 40, 58);
+    text-decoration: underline;
+}

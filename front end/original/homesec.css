@@ -31,7 +31,7 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 1rem;
   padding: 8px;
   margin-bottom: 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -41,14 +41,16 @@ body {
   border: none;
   outline: none;
   width: 100%;
-  padding: 8px;
+  padding: 5px;
 }
 
 .search-bar button {
   border: none;
   background: none;
-  font-size: 18px;
+  font-size: 15px;
   cursor: pointer;
+  color: rgb(39, 55, 77);
+  margin-right: 0.7rem;
 }
 
 .companies {
@@ -64,6 +66,7 @@ body {
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: radial-gradient(circle at 50% 50% , #ced9ce, #9db2bf);
 }
 
 .company .logo {
@@ -79,11 +82,6 @@ body {
   margin-right: 15px;
 }
 
-.optum { background: #f76c38; }
-.genpact { background: #1f75cb; }
-.teleperformance { background: #9152cc; }
-.foundever { background: #556ee6; }
-.exl { background: #f97316; }
 
 p{
   font-size: 12px;
