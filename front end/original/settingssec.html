@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STI Account</title>
+  <link rel="stylesheet" href="cssforall.css">
+  <link rel="stylesheet" href="settings.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+          <img src="jobhive logo.png" alt="JobHive Logo">
+      </div>
+      <div class="pic">
+        <img src="profile.png" alt="Profile Picture">
+        <h2>GULFAN, Kitz Mavin</h2>
+        <p>BSIT STUDENT</p>
+      </div>
+
+      <nav class="menu">
+        <a href="homesec.html#home">Home</a>
+        <a href="accountsec.html#account" class="active">Account</a>
+        <a href="pendingappsec.html#pendingapp">Pending Applications</a>
+      </nav>
+      <nav class="menu">
+        <a href="settingssec.html#settings">Settings</a>
+        <a href="index.html">Log out</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+ <!-- Main Content -->
+
+   <main class="main-content" id="#settings">
+     <div class="main-content">
+        <div class="header">
+            <div class="header-title">Settings</div>
+            <div class="header-subtitle">Manage your application preferences</div>
+        </div>
+
+        <section class="card">
+                <div class="card-header">
+                    <div class="card-icon-bell"><i class="fa-regular fa-bell"></i></div>
+                    <div class="card-header-content">
+                        <h3>Notifications</h3>
+                        <p>Manage how you receive notifications.</p>
+                    </div>
+                </div>
+
+                <div class="setting">
+                    <span>Email Notifications</span>
+                      <p>Receive updates via email.</p>
+                         <label class="switch">
+                           <input type="checkbox">
+                           <span class="slider"></span>
+                         </label>
+                </div>
+
+                <div class="setting">
+                     <span>Push Notifications</span>
+                       <p>Receive browser notifications.</p>
+                         <label class="switch">
+                           <input type="checkbox">
+                           <span class="slider"></span>
+                         </label>
+                </div>
+
+                <div class="setting">
+                     <span>Application Updates</span>
+                       <p>Get notified about application status changes.</p>
+                           <label class="switch">
+                             <input type="checkbox">
+                             <span class="slider"></span>
+                           </label>
+                </div>
+        </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-icon-mail"><i class="fa-regular fa-envelope"></i></div>
+                    <div class="card-header-content">
+                        <h3>Notifications</h3>
+                        <p>Manage how you receive notifications.</p>
+                    </div>
+                </div>
+                <div class="setting">
+                    <span>Job Recommendations</span>
+                    <p>Weekly job suggestions based on your profile.</p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting">
+                    <span>Newsletter</span>
+                    <p>Monthly career tips and industry insights.</p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </section>
+        </main>
+    </div>
+
+        <script>
+                function toggleSwitch(button) {
+                        button.classList.toggle('active');
+                }
+        </script>
+    </main>
+</body>
+</html>
