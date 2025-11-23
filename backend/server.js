@@ -1,20 +1,32 @@
 const express = require("express") //for handling html requests and promises whatever
 const cors = require("cors") //allow cross origins stuff
 const mysql = require("mysql2") //for sql
+
 const app = express() 
 const bcrypt = require("bcrypt") //hashing the passwords
 
 app.use(express.json()) 
 app.use(cors())
 
-const db = mysql.createPool({ //connect to xamppp 
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'jobhive',
-    port: 3306,
 
+
+app.get("/", (req, res) => { //test route
+    res.json("Backend speaking :3")
 })
+
+
+
+require ("dotenv").config() //for using env variables
+const db = mysql.createPool({ //connect to xamppp 
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT,
+})
+
+// promise api helper
+const dbp = db.promise() 
 
 db.getConnection((err, connection) => { //test pool's working
     if (err) {
@@ -25,6 +37,14 @@ db.getConnection((err, connection) => { //test pool's working
     connection.release()
 })
 
+const authRoutes = require('./routes/auth.routes') //import auth routes
+app.use('/auth', authRoutes) //use auth routes
+
+// test out admin
+const { verifyToken, requireRole } = require('./middleware/auth')
+app.get('/admin-only', verifyToken, requireRole('admin'), async (req, res) => {
+  res.json({ message: 'admin ok', user: req.user })
+})
 
 
 app.post('/login', (req, res) => { //login function
