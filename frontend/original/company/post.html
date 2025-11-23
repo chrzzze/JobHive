@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job | JobHive</title>
+    <link rel="stylesheet" href="cssforallcompany.css">
+    <link rel="stylesheet" href="postcompany.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="jobhive logo.png" alt="JobHive Logo">
+            </div>
+            <div class="pic">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/035/857/753/small/people-face-avatar-icon-cartoon-character-png.png" alt="Profile Picture">
+                <h2>Company Name</h2>
+                <p>IT Company</p>
+            </div>
+
+            <nav class="menu">
+                <a href="homecompany.html#account" >Home</a>
+                <a href="applicantlist.html#applist">Applicants List</a>
+                <a href="post.html"class="active">Post a Job</a>
+            </nav>
+            <nav class="menu">
+                <a href="settingscompany.html#settings">Settings</a>
+                <a href="index.html">Log out</a>
+            </nav>
+        </aside>
+
+    <main class="main-content">
+        <div class="header-container">
+        <div>
+            <h1>Post New Job</h1>
+            <p>Create a new job listing to encourage applications from talented students</p>
+        </div>
+        <button id="managePostBtn" class="manage-btn">Manage Posts</button>
+    </div>
+
+    <!-- Post Form Section -->
+    <div id="formView">
+        <div class="section">
+        <h2>Basic Information</h2>
+
+        <label>Job Title <span class="asterisk">*</span></label>
+        <input type="text" id="jobTitle" placeholder="e.g., Software Engineer Intern">
+
+        <div class="row">
+            <div class="field">
+                <label>Department <span class="asterisk">*</span></label>
+                <input type="text" id="department" placeholder="e.g., Information Technology">
+            </div>
+
+            <div class="field">
+                <label>Duration <span class="asterisk">*</span></label>
+                <input type="text" id="duration" placeholder="e.g., 3 months">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="field">
+                <label>Location <span class="asterisk">*</span></label>
+                <input type="text" id="location" placeholder="e.g., Muntinlupa City">
+            </div>
+
+            <div class="field">
+                <label>Work Mode <span class="asterisk">*</span></label>
+                <select id="workMode">
+                    <option value="">Select an option</option>
+                    <option value="Onsite">Onsite</option>
+                    <option value="Remote">Remote</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select>
+            </div>
+        </div>
+
+        <label>Job Description <span class="asterisk">*</span></label>
+        <textarea id="jobDescription" rows="5" placeholder="Job description here..."></textarea>
+    </div>
+
+        <div class="section">
+            <h2>Requirements & Qualifications</h2>
+            <label>Required Skills and Experience <span class="asterisk">*</span></label>
+            <textarea id="skills" rows="5" placeholder="List essential requirements..."></textarea>
+        </div>
+
+        <button id="submitBtn" class="submit-btn">Post Job</button>
+    </div>
+</div>
+
+<!-- Slide-in modal for managing posts with overlay backdrop -->
+<div id="manageModalOverlay" class="modal-overlay hidden"></div>
+<div id="manageModal" class="manage-modal hidden">
+    <div class="modal-header">
+        <h2>Manage Your Job Posts</h2>
+        <button id="closeModalBtn" class="close-btn">&times;</button>
+    </div>
+    <div id="postsList" class="posts-list">
+        <p class="no-posts">No job posts yet.</p>
+    </div>
+</div>
+
+<!--  Confirmation Modal -->
+<div id="deleteModal" class="modal hidden">
+    <div class="modal-content">
+        <h3>Delete Post?</h3>
+        <p>Are you sure you want to delete this job post?</p>
+        <div class="modal-buttons">
+            <button id="confirmDeleteBtn" class="delete-confirm">Delete</button>
+            <button id="cancelDeleteBtn" class="delete-cancel">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- View Post Details Modal -->
+<div id="viewModal" class="modal hidden">
+    <div class="modal-content">
+        <button id="closeViewBtn" class="close-view-btn">&times;</button>
+        <div id="viewContent"></div>
+    </div>
+</div>
+
+<!-- Edit Post Modal -->
+<div id="editModal" class="modal hidden">
+    <div class="modal-content">
+        <h3>Edit Job Post</h3>
+        <button id="closeEditBtn" class="close-edit-btn">&times;</button>
+        <form id="editForm">
+            <label>Job Title <span class="asterisk">*</span></label>
+            <input type="text" id="editJobTitle" required>
+            
+            <label>Department <span class="asterisk">*</span></label>
+            <input type="text" id="editDepartment" required>
+            
+            <label>Duration <span class="asterisk">*</span></label>
+            <input type="text" id="editDuration" required>
+            
+            <label>Location <span class="asterisk">*</span></label>
+            <input type="text" id="editLocation" required>
+            
+            <label>Work Mode <span class="asterisk">*</span></label>
+            <select id="editWorkMode" required>
+                <option value="">Select an option</option>
+                <option value="Onsite">Onsite</option>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
+            </select>
+            
+            <label>Job Description <span class="asterisk">*</span></label>
+            <textarea id="editJobDescription" rows="5" required></textarea>
+            
+            <label>Required Skills and Experience <span class="asterisk">*</span></label>
+            <textarea id="editSkills" rows="5" required></textarea>
+            
+            <div class="modal-buttons">
+                <button type="submit" class="save-btn">Save Changes</button>
+                <button type="button" id="cancelEditBtn" class="cancel-btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+</main>
+</div>
+<script>
+    // Store posts in localStorage
+const posts = JSON.parse(localStorage.getItem("jobPosts")) || []
+let deleteTargetIndex = null
+let editTargetIndex = null
+
+// DOM Elements
+const managePostBtn = document.getElementById("managePostBtn")
+const manageModal = document.getElementById("manageModal")
+const manageModalOverlay = document.getElementById("manageModalOverlay")
+const closeModalBtn = document.getElementById("closeModalBtn")
+const submitBtn = document.getElementById("submitBtn")
+const postsList = document.getElementById("postsList")
+const deleteModal = document.getElementById("deleteModal")
+const confirmDeleteBtn = document.getElementById("confirmDeleteBtn")
+const cancelDeleteBtn = document.getElementById("cancelDeleteBtn")
+const viewModal = document.getElementById("viewModal")
+const closeViewBtn = document.getElementById("closeViewBtn")
+const editModal = document.getElementById("editModal")
+const closeEditBtn = document.getElementById("closeEditBtn")
+const cancelEditBtn = document.getElementById("cancelEditBtn")
+const editForm = document.getElementById("editForm")
+
+// Form inputs
+const jobTitleInput = document.getElementById("jobTitle")
+const departmentInput = document.getElementById("department")
+const durationInput = document.getElementById("duration")
+const locationInput = document.getElementById("location")
+const workModeInput = document.getElementById("workMode")
+const jobDescriptionInput = document.getElementById("jobDescription")
+const skillsInput = document.getElementById("skills")
+
+managePostBtn.addEventListener("click", () => {
+  manageModalOverlay.classList.remove("hidden")
+  manageModal.classList.remove("hidden")
+  manageModal.classList.add("open")
+  renderPosts()
+})
+
+closeModalBtn.addEventListener("click", closeManageModal)
+manageModalOverlay.addEventListener("click", closeManageModal)
+
+function closeManageModal() {
+  manageModal.classList.remove("open")
+  manageModal.classList.add("hidden")
+  manageModalOverlay.classList.add("hidden")
+}
+
+// Submit job post
+submitBtn.addEventListener("click", () => {
+  const jobTitle = jobTitleInput.value.trim()
+  const department = departmentInput.value.trim()
+  const duration = durationInput.value.trim()
+  const location = locationInput.value.trim()
+  const workMode = workModeInput.value.trim()
+  const jobDescription = jobDescriptionInput.value.trim()
+  const skills = skillsInput.value.trim()
+
+  // Validation
+  if (!jobTitle || !department || !duration || !location || !workMode || !jobDescription || !skills) {
+    alert("Please fill out all required fields.")
+    return
+  }
+
+  // Create post object
+  const post = {
+    id: Date.now(),
+    jobTitle,
+    department,
+    duration,
+    location,
+    workMode,
+    jobDescription,
+    skills,
+    createdAt: new Date().toLocaleString(),
+  }
+
+  // Add to posts array
+  posts.push(post)
+  localStorage.setItem("jobPosts", JSON.stringify(posts))
+
+  alert("Job posted successfully!")
+
+  // Clear form
+  jobTitleInput.value = ""
+  departmentInput.value = ""
+  durationInput.value = ""
+  locationInput.value = ""
+  workModeInput.value = ""
+  jobDescriptionInput.value = ""
+  skillsInput.value = ""
+})
+
+function renderPosts() {
+  if (posts.length === 0) {
+    postsList.innerHTML = '<p class="no-posts">No job posts yet.</p>'
+    return
+  }
+
+  postsList.innerHTML = ""
+  posts.forEach((post, index) => {
+    const postCard = document.createElement("div")
+    postCard.className = "post-card"
+
+    postCard.innerHTML = `
+      <div class="post-title-row">
+        <span class="post-title-text">${post.jobTitle} - ${post.department}</span>
+        <div class="post-actions-icons">
+          <button class="action-icon view-icon" title="View" data-index="${index}">
+            <i class="fas fa-eye"></i>
+          </button>
+          <button class="action-icon edit-icon" title="Edit" data-index="${index}">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button class="action-icon delete-icon" title="Delete" data-index="${index}">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+      <div class="post-detail-row">
+        <span>Duration:</span>
+        <span>${post.duration}</span>
+      </div>
+      <div class="post-detail-row">
+        <span>Location:</span>
+        <span>${post.location}</span>
+      </div>
+      <div class="post-detail-row">
+        <span>Work Mode:</span>
+        <span>${post.workMode}</span>
+      </div>
+      <div class="post-detail-row">
+        <span>Posted:</span>
+        <span>${post.createdAt}</span>
+      </div>
+    `
+
+    // View button
+    postCard.querySelector(".view-icon").addEventListener("click", (e) => {
+      e.stopPropagation()
+      openViewModal(index)
+    })
+
+    // Edit button
+    postCard.querySelector(".edit-icon").addEventListener("click", (e) => {
+      e.stopPropagation()
+      openEditModal(index)
+    })
+
+    // Delete button
+    postCard.querySelector(".delete-icon").addEventListener("click", (e) => {
+      e.stopPropagation()
+      deleteTargetIndex = index
+      deleteModal.classList.remove("hidden")
+    })
+
+    postsList.appendChild(postCard)
+  })
+}
+
+function openViewModal(index) {
+  const post = posts[index]
+  const viewContent = document.getElementById("viewContent")
+
+  viewContent.innerHTML = `
+    <h3>${post.jobTitle}</h3>
+    <div class="view-detail">
+      <div class="view-detail-label">Department:</div>
+      <div class="view-detail-value">${post.department}</div>
+    </div>
+    <div class="view-detail">
+      <div class="view-detail-label">Duration:</div>
+      <div class="view-detail-value">${post.duration}</div>
+    </div>
+    <div class="view-detail">
+      <div class="view-detail-label">Location:</div>
+      <div class="view-detail-value">${post.location}</div>
+    </div>
+    <div class="view-detail">
+      <div class="view-detail-label">Work Mode:</div>
+      <div class="view-detail-value">${post.workMode}</div>
+    </div>
+    <div class="view-detail">
+      <div class="view-detail-label">Job Description:</div>
+      <div class="view-detail-value">${post.jobDescription}</div>
+    </div>
+    <div class="view-detail">
+      <div class="view-detail-label">Required Skills & Experience:</div>
+      <div class="view-detail-value">${post.skills}</div>
+    </div>
+    <div class="view-detail">
+      <div class="view-detail-label">Posted on:</div>
+      <div class="view-detail-value">${post.createdAt}</div>
+    </div>
+  `
+
+  viewModal.classList.remove("hidden")
+}
+
+function openEditModal(index) {
+  editTargetIndex = index
+  const post = posts[index]
+
+  document.getElementById("editJobTitle").value = post.jobTitle
+  document.getElementById("editDepartment").value = post.department
+  document.getElementById("editDuration").value = post.duration
+  document.getElementById("editLocation").value = post.location
+  document.getElementById("editWorkMode").value = post.workMode
+  document.getElementById("editJobDescription").value = post.jobDescription
+  document.getElementById("editSkills").value = post.skills
+
+  editModal.classList.remove("hidden")
+}
+
+// Submit edit form
+editForm.addEventListener("submit", (e) => {
+  e.preventDefault()
+
+  if (editTargetIndex !== null) {
+    posts[editTargetIndex] = {
+      ...posts[editTargetIndex],
+      jobTitle: document.getElementById("editJobTitle").value.trim(),
+      department: document.getElementById("editDepartment").value.trim(),
+      duration: document.getElementById("editDuration").value.trim(),
+      location: document.getElementById("editLocation").value.trim(),
+      workMode: document.getElementById("editWorkMode").value.trim(),
+      jobDescription: document.getElementById("editJobDescription").value.trim(),
+      skills: document.getElementById("editSkills").value.trim(),
+    }
+
+    localStorage.setItem("jobPosts", JSON.stringify(posts))
+    alert("Post updated successfully!")
+    editModal.classList.add("hidden")
+    renderPosts()
+    editTargetIndex = null
+  }
+})
+
+// Close view modal
+closeViewBtn.addEventListener("click", () => {
+  viewModal.classList.add("hidden")
+})
+
+// Close edit modal
+closeEditBtn.addEventListener("click", () => {
+  editModal.classList.add("hidden")
+  editTargetIndex = null
+})
+
+cancelEditBtn.addEventListener("click", () => {
+  editModal.classList.add("hidden")
+  editTargetIndex = null
+})
+
+// Click outside modals to close
+viewModal.addEventListener("click", (e) => {
+  if (e.target === viewModal) {
+    viewModal.classList.add("hidden")
+  }
+})
+
+editModal.addEventListener("click", (e) => {
+  if (e.target === editModal) {
+    editModal.classList.add("hidden")
+    editTargetIndex = null
+  }
+})
+
+// Delete confirmation
+confirmDeleteBtn.addEventListener("click", () => {
+  if (deleteTargetIndex !== null) {
+    posts.splice(deleteTargetIndex, 1)
+    localStorage.setItem("jobPosts", JSON.stringify(posts))
+    renderPosts()
+    deleteModal.classList.add("hidden")
+    deleteTargetIndex = null
+  }
+})
+
+cancelDeleteBtn.addEventListener("click", () => {
+  deleteModal.classList.add("hidden")
+  deleteTargetIndex = null
+})
+
+// Logout functionality
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  alert("You have been logged out.")
+})
+
+</script>
+</body>
+</html>

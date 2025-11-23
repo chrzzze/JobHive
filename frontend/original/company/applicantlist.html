@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicants List | JobHive</title>
+    <link rel="stylesheet" href="cssforallcompany.css">
+    <link rel="stylesheet" href="applist.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="jobhive logo.png" alt="JobHive Logo">
+            </div>
+            <div class="pic">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/035/857/753/small/people-face-avatar-icon-cartoon-character-png.png" alt="Profile Picture">
+                <h2>Company Name</h2>
+                <p>IT Company</p>
+            </div>
+
+            <nav class="menu">
+                <a href="homecompany.html#account" >Home</a>
+                <a href="applicantlist.html#applist" class="active">Applicants List</a>
+                <a href="post.html">Post a Job</a>
+            </nav>
+            <nav class="menu">
+                <a href="settingscompany.html#settings">Settings</a>
+                <a href="index.html">Log out</a>
+            </nav>
+        </aside>
+
+
+        <main class="main-content">
+            <div class="search-bar">
+                 <input type="text" id="searchInput" placeholder="Search student..." />
+                 <button onclick="showAccepted()">View Accepted</button>
+                 <button onclick="showRejected()">View Rejected</button>
+                 <button onclick="showAll()">View All</button>
+            </div>
+
+            <div class="list-card">
+            <table id="applicantsTable">
+                 <thead>
+                     <tr>
+                         <th>Accept/Reject</th>
+                         <th>Name</th>
+                         <th>Contact</th>
+                         <th>Program</th>
+                         <th>Resume</th>
+                     </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <table id="acceptedTable" style="display:none;">
+                 <thead><tr><th>Accepted Applicants</th></tr></thead>
+                 <tbody></tbody>
+            </table>
+
+            <table id="rejectedTable" style="display:none;">
+                 <thead><tr><th>Rejected Applicants</th></tr></thead>
+                 <tbody></tbody>
+            </table>
+            </div>
+            <div id="resumeModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalName"></h2>
+    <p id="modalResume" style="white-space: pre-line;"></p>
+  </div>
+</div>
+        </main>
+
+  <script>
+    let applicants = [
+      { name: "Aranzaso, Cherizze Anne L.", contact: "0912-345-6789", program: "BS Information Technology", resume: "Resume content for Cherizze Anne L.\nSkills: HTML, CSS, JS\nExperience: Internship at ABC Co."},
+  { name: "Carubio, Jobert A.", contact: "0912-345-6789", program: "BS Information Technology", resume: "Resume content for Jobert A.\nSkills: Java, Python\nExperience: Volunteer Work at XYZ." },
+  // Add other applicants similarly
+      { name: "Gabrinno, Redd Moe-oe V.", contact: "0912-345-6789", program: "BS Information Technology" },
+      { name: "Gulfan, Kitz Mavin D.", contact: "0912-345-6789", program: "BS Information Technology" },
+      { name: "Lagasca, Mikayla Joana B.", contact: "0912-345-6789", program: "BS Information Technology" },
+      { name: "Laporteza, John Cedrich L.", contact: "0912-345-6789", program: "BS Information Technology" },
+      { name: "Logmao, Gabriel F.", contact: "0912-345-6789", program: "BS Information Technology" },
+      { name: "Odango, Alexa Clare O.", contact: "0912-345-6789", program: "BS Information Technology" },
+      { name: "Ortega, Christianne Mae D.", contact: "0912-345-6789", program: "BS Information Technology" },
+      { name: "Teves, Khakhea Joseph Mharla Jhade", contact: "0912-345-6789", program: "BS Information Technology" }
+    ];
+
+    let acceptedList = [];
+    let rejectedList = [];
+
+    function loadApplicants(list) {
+      const tbody = document.querySelector('#applicantsTable tbody');
+      tbody.innerHTML = '';
+      list.forEach((app, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>
+            <button class="btn accept" onclick="acceptApplicant(${index})">✔</button>
+            <button class="btn reject" onclick="rejectApplicant(${index})">✖</button>
+          </td>
+          <td>${app.name}</td>
+          <td>${app.contact}</td>
+          <td>${app.program}</td>
+          <td><button class="btn view-resume" onclick="viewResume(${index})">View Resume</button></td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function acceptApplicant(i) {
+      const removed = applicants.splice(i, 1)[0];
+      acceptedList.push(removed);
+      loadApplicants(applicants);
+    }
+
+    function rejectApplicant(i) {
+      const removed = applicants.splice(i, 1)[0];
+      rejectedList.push(removed);
+      loadApplicants(applicants);
+    }
+
+    function showAccepted() {
+      document.getElementById('applicantsTable').style.display='none';
+      document.getElementById('rejectedTable').style.display='none';
+
+      const t = document.querySelector('#acceptedTable tbody');
+      t.innerHTML = '';
+      acceptedList.forEach(a => t.innerHTML += `<tr><td>${a.name}</td></tr>`);
+
+      document.getElementById('acceptedTable').style.display='table';
+    }
+
+    function showRejected() {
+      document.getElementById('applicantsTable').style.display='none';
+      document.getElementById('acceptedTable').style.display='none';
+
+      const t = document.querySelector('#rejectedTable tbody');
+      t.innerHTML = '';
+      rejectedList.forEach(a => t.innerHTML += `<tr><td>${a.name}</td></tr>`);
+
+      document.getElementById('rejectedTable').style.display='table';
+    }
+
+    function showAll() {
+      document.getElementById('acceptedTable').style.display='none';
+      document.getElementById('rejectedTable').style.display='none';
+      document.getElementById('applicantsTable').style.display='table';
+      loadApplicants(applicants);
+    }
+
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+      const q = this.value.toLowerCase();
+      const filtered = applicants.filter(a => a.name.toLowerCase().includes(q));
+      showAll();
+      loadApplicants(filtered);
+    });
+
+    loadApplicants(applicants);
+  </script>
+  <script>
+    function viewResume(index) {
+  const modal = document.getElementById('resumeModal');
+  document.getElementById('modalName').innerText = applicants[index].name + "'s Resume";
+  document.getElementById('modalResume').innerText = applicants[index].resume;
+  modal.style.display = 'flex';
+}
+
+// Close modal
+function closeModal() {
+  document.getElementById('resumeModal').style.display = 'none';
+}
+
+// Optional: close modal when clicking outside content
+window.onclick = function(event) {
+  const modal = document.getElementById('resumeModal');
+  if(event.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+  </script>
+</body>
+</html>
