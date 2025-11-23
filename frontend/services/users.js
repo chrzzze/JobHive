@@ -10,4 +10,11 @@ const signup = (name, email, password, role) => {
     })
 }
 
-export default {signup}
+const login = (email, password) => {
+    return axios.post(baseURL + 'auth/login', {
+        email,
+        password
+    })
+}
+
+export default {signup, login}
