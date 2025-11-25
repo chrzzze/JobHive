@@ -18,7 +18,7 @@ const db = require("mysql2").createPool({ //connect to xamppp
 //sign up stuff
 router.post('/signup', async (req, res) => {
     try {
-        const { name, email, password, role } = req.body
+        const { email, password, user_type } = req.body
         console.log("someone's trying to sign up with ", email, " ", password) //merely for logging purposes
 
         //if user exists
@@ -27,7 +27,7 @@ router.post('/signup', async (req, res) => {
 
         //else
         const hash = await bcrypt.hash(password, 10)
-        await db.query('INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)', [name, email, hash, role])
+        await db.query('INSERT INTO users (email, password, user_type) VALUES (?, ?, ?)', [email, hash, user_type])
         res.status(201).json({ message: 'User created successfully!' })
     } catch (err) {
         console.error('Error during signup: ', err)
@@ -50,7 +50,7 @@ router.post('/login', async (req, res) => {
         if (!match) return res.status(401).json({ message: 'Incorrect email or password :/' })
 
         // but if it does,
-        const payload = { id: user.id, email: user.email, role: user.role }
+        const payload = { id: user.id, email: user.email, user_type: user.user_type }
         const token = jwt.sign(payload, process.env.JWT_SECRET, {
             expiresIn: '1h'
         })

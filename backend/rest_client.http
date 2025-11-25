@@ -1,0 +1,12 @@
+@BASE_URL = http://localhost:3001
+
+### register 
+
+POST {{BASE_URL}}/auth/signup
+Content-Type: application/json
+
+{
+    "email": "ranasword@realemail.com",
+    "password": "password real",
+    "user_type": "admin"
+}

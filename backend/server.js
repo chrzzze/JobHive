@@ -41,36 +41,36 @@ const authRoutes = require('./routes/auth.routes') //import auth routes
 app.use('/auth', authRoutes) //use auth routes
 
 // test out admin
-const { verifyToken, requireRole } = require('./middleware/auth')
+const { verifyToken, requireRole } = require('./middleware/auth.service.js')
 app.get('/admin-only', verifyToken, requireRole('admin'), async (req, res) => {
   res.json({ message: 'admin ok', user: req.user })
 })
 
 
-app.post('/login', (req, res) => { //login function
+// app.post('/login', (req, res) => { //login function
 
-    const { email, password } = req.body
+//     const { email, password } = req.body
     
-    console.log("someone's trying to login with ", email, " ", password) //merely for logging purposes
+//     console.log("someone's trying to login with ", email, " ", password) //merely for logging purposes
 
-    const sql = 'SELECT * FROM users WHERE email = ? AND password = ?'
-    db.query(sql, [email, password], (err, result) => {
+//     const sql = 'SELECT * FROM users WHERE email = ? AND password = ?'
+//     db.query(sql, [email, password], (err, result) => {
 
-        if (err) {
-            console.error('DB query error: ', err)
-            res.status(500).json({message: 'An error occured while processing your request. Sorry : ('})
+//         if (err) {
+//             console.error('DB query error: ', err)
+//             res.status(500).json({message: 'An error occured while processing your request. Sorry : ('})
 
-        } else {
+//         } else {
 
-            if (result.length > 0) {
-                res.status(200).json({ message: 'Login successful!'})
-            } else {
-                res.status(401).json({message: 'Login failed. Invalid email or password.'})
-            }
+//             if (result.length > 0) {
+//                 res.status(200).json({ message: 'Login successful!'})
+//             } else {
+//                 res.status(401).json({message: 'Login failed. Invalid email or password.'})
+//             }
 
-        } 
-    })
-})
+//         } 
+//     })
+// })
 
 const PORT = 3001
 
