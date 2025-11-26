@@ -16,6 +16,7 @@ app.get("/", (req, res) => { //test route
 
 
 
+
 require ("dotenv").config() //for using env variables
 const db = mysql.createPool({ //connect to xamppp 
     host: process.env.DB_HOST,
@@ -33,7 +34,7 @@ db.getConnection((err, connection) => { //test pool's working
         console.error('screwed up connecting to the database: ', err)
         return
     }
-    console.log('Databse connected successfully')
+    console.log('Database connected successfully')
     connection.release()
 })
 

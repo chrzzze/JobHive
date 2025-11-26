@@ -1,44 +1,45 @@
-.navsec {
-  /* background-color: #9db2bf; */
-    background: linear-gradient(#9db2bf 0%, #ced9df 50%, #9db2bf 100%);
-}
+/* some of the repeating elements are here */
+/* navbar for sign in/up logo css */
+
+/* General Page Styles */
+
+/* Navbar */
+/* .navsec{
+ background: #9db2bf;
+ height: 100vh;
+} */
 .navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 1.5rem;
   background: linear-gradient(to bottom, #8899a4, rgba(0,0,0,0));
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  
 }
 
 .nav-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 1rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items:center;
+  display: flex-end;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
 }
 
-.logo img {
-  height: 3.5rem; 
-  width: auto;
-  display: block;
-}
-
+/* .logo img {
+  height: 50px;
+} */
 
 .nav-links {
+  list-style: none;
   display: flex;
   align-items: center;
   gap: 1.7rem;
-  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
-  font-size: 1.1rem;
   text-decoration: none;
-  color: #1e2b3c;
+  color: #000;
   font-weight: 500;
-  transition: color 0.3s;
 }
 
 .nav-links a:hover {
@@ -46,31 +47,60 @@
 }
 
 .btn {
-  padding: 0.4rem 0.7rem;
-  border-radius: 10rem;
+  border-radius: 20px;
+  padding: 0.5rem 1.2rem;
   text-decoration: none;
-  cursor: pointer;
-
+  font-weight: 600;
 }
 
 .btn-signin {
-  border: 2px solid black;
-  background-color: white;
+  border: 1px solid #000;
+  color: #000;
 }
-
-.btn-signin:hover {
-  border: 2px solid white;
-  box-shadow: 0 0 4px, 0 0 10px white;
-}
-
 
 .btn-signup {
-  background-color:#f5be1e;
-  border: 2px solid black;
+  background-color: #f5be1e;
+  color: #000;
 }
 
-.btn-signup:hover {
-  background-color: #f5be1e;
-  border-color: #f5be1e;
-  box-shadow: 0 0 10px, 0 0 10px #f5be1e;
+.platform-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background-color: rgb(207, 213, 217);
+  border: 1.5px solid rgb(157, 178,191);
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
+
+
+.platform-tag img {
+  width: 15px;
+  height: 15px;
+}
+
+p, h1, h2, h3{
+  color: #000;
+}
+
+h1{
+  font-size: 3.5rem;
+  font-weight: bolder;
+
+}
+
+
+.website-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.website-logo img {
+  height: 60px;
+  width: auto;
+}
+
