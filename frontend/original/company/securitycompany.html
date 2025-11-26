@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account | JobHive</title>
+  <link rel="stylesheet" href="cssforallcompany.css">
+  <link rel="stylesheet" href="securitycompany.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="jobhive logo.png" alt="JobHive Logo">
+            </div>
+            <div class="pic">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/035/857/753/small/people-face-avatar-icon-cartoon-character-png.png" alt="Profile Picture">
+                <h2>Company Name</h2>
+                <p>IT Company</p>
+            </div>
+
+            <nav class="menu">
+                <a href="accountcompany.html#account" class="active">Account</a>
+                <a href="applicantlist.html#applist">Applicants List</a>
+                <a href="post.html">Post a Job</a>
+            </nav>
+            <nav class="menu">
+                <a href="settingscompany.html#settings">Settings</a>
+                <a href="index.html">Log out</a>
+            </nav>
+        </aside>
+
+    <!-- Main Content -->
+    <main class="profile-menu" id="#account">
+        <nav class="accmenu">
+        <a href="accountdashboardcompany.html"><i class="fa-solid fa-chart-pie"></i>Dashboard Overview</a>
+        <a href="accountprofile.html"><i class="fa-regular fa-user"></i>Profile</a>
+        <a href="manageresume.html" > <i class="fa-regular fa-file"></i>Manage Resume</a>
+        <a href="securitycompany.html"class="active"><i class="fa-solid fa-user-shield"></i>Security</a>
+      </nav>
+    </main>
+
+   <aside class="security-section" id="#sec">
+    <section class="security-card">
+      <div class="head-text">
+      <h2>Security Settings</h2>
+      <p>Manage your security.</p>
+      </div>
+
+
+    <div class="section">
+        <h2>Change Password</h2>
+        <p>Update your password regularly to keep your account secure.</p>
+        <button class="change-password" onclick="changePassword()">Change Password</button>
+    </div>
+
+     <div class="section">
+          <h2>Two-Factor Authentication</h2>
+          <p>Add an extra layer of security to your account.</p>
+          <button class="enable-2fa" onclick="enable2FA()">Enable 2FA</button>
+     </div>
+
+     <div class="section">
+          <h2>Active Sessions</h2>
+          <p>Manage your login sessions.</p>
+          <div id="sessions-container"></div>
+     </div>
+</div>
+
+<script>
+function changePassword() {
+    alert("Password change function triggered!");
+}
+
+function enable2FA() {
+    alert("2FA enable function triggered!");
+}
+
+// Simulate current device info
+function getDeviceInfo() {
+    const userAgent = navigator.userAgent;
+    return `${userAgent.split('(')[0]}<br><small>Simulated Location - Active now</small>`;
+}
+
+// Load sessions from localStorage
+function loadSessions() {
+    const sessions = JSON.parse(localStorage.getItem('sessions') || '[]');
+    const container = document.getElementById('sessions-container');
+    container.innerHTML = '';
+
+    sessions.forEach((session, index) => {
+        const div = document.createElement('div');
+        div.className = 'session';
+        div.innerHTML = `
+            <span>${session.info}</span>
+            <button class="delete-session" onclick="deleteSession(${index})">Delete</button>
+        `;
+        container.appendChild(div);
+    });
+}
+
+// Add current session automatically
+function addCurrentSession() {
+    const sessions = JSON.parse(localStorage.getItem('sessions') || '[]');
+    const currentInfo = getDeviceInfo();
+
+    // Avoid duplicate sessions on same device
+    if (!sessions.some(s => s.info === currentInfo)) {
+        sessions.push({ info: currentInfo });
+        localStorage.setItem('sessions', JSON.stringify(sessions));
+    }
+}
+
+// Delete a session
+function deleteSession(index) {
+    const sessions = JSON.parse(localStorage.getItem('sessions') || '[]');
+    sessions.splice(index, 1);
+    localStorage.setItem('sessions', JSON.stringify(sessions));
+    loadSessions();
+}
+
+// Initialize on page load
+addCurrentSession();
+loadSessions();
+</script>
+        </section>
+    </aside>
+</body>
+</html>

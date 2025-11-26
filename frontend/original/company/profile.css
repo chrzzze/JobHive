@@ -1,0 +1,169 @@
+
+
+.container {
+
+    grid-template-columns: 250px 1fr 820px;
+
+}
+
+
+.head-text{
+    margin: 0.1rem 0 0.5rem 1rem;
+}
+
+.head-text h2{
+  font-size: 25px;
+    color: #f5be1e;
+    text-shadow: 1px 1px 2px black;
+    
+}
+
+.head-text p{
+      color: #6d6969;
+      font-size: 13px;
+
+}
+
+
+/* prof sec  */
+.profile-section {
+    background-color: #ced9df;
+    display: flex;
+    padding-top: 0.7rem; 
+    padding-bottom: 0.7rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+
+.profile-card {
+    border-radius: 1.5rem;
+    background-color: #9db2bf;
+    margin-right: 0.5rem;
+    display: flex;
+    flex-direction: column; 
+    padding: 1rem;
+    width: 100%;
+}
+
+.prof-pic {
+    display: flex;
+    gap: 3rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    margin-bottom: 0.3rem;
+    align-items: center; 
+    background-color: rgb(217,217,217);
+    border-radius: 0.5rem;
+}
+
+.prof-pic img {
+    box-shadow: 0 0 3px black, 0 0 5px black;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0.5rem 0 0.5rem 3.5rem;
+}
+
+.prof-text {
+    margin-bottom: 0.5rem;
+    color: #000;
+    font-size: 10px;
+}
+
+.btn-text{
+  font-size: 10px;
+  padding-left: 7px;
+  padding-right: 7px;
+  color: rgb(30, 50, 69);
+}
+
+
+.btn-upload{
+  background-color: #f5be1e;
+  padding: 2px 5px;
+  font-weight: bold;
+    margin-top: 10px;
+    border: 1px solid rgb(30, 50, 69);
+    border-radius: 0.2rem;
+    box-shadow: 0 0 3px rgb(30, 50, 69);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.btn-upload:hover{
+    box-shadow: 0 0 8px rgb(30, 50, 69);
+}
+
+  /* Sections */
+  .section-header {
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: rgb(30, 43, 60);
+    text-shadow: 0 0 3px black;
+
+  }
+
+  .section-header a {
+    font-weight: 400;
+    font-size: 12px;
+    color: #6d6969;
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow: none;
+  }
+  .section-header a:hover {
+    text-decoration: underline;
+  }
+
+  /* Personal and contact info ftables*/
+  table.info-table {
+    width: 100%;
+    border-collapse: separate;
+  }
+  table.info-table td {
+    vertical-align: middle;
+    padding: 0rem 0.4rem;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  table.info-table td.label {
+    width: 24%;
+    font-weight: 700;
+    font-size: 12px;
+    color: rgb(30, 43, 60);
+    border: 1px solid rgb(109, 109, 109);
+    border-radius: 0.3rem 0 0 0.3rem;
+  }
+  table.info-table td.value {
+    width: 76%;
+    font-size: 12px;
+    border: 1px solid rgb(109, 109, 109);
+    border-radius: 0 0.3rem 0.3rem 0;
+  }
+  input.info-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 5px;
+  }
+  input.info-input:focus {
+    outline: 1px solid #9db2bf;
+    background: #eaeef6;
+  }
+
+
+    .card {
+    background-color: rgb(217,217,217);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: inset 0 0 6px #bcccd9;
+    margin-top: 0.3rem;
+  }
+
