@@ -6,7 +6,25 @@ POST {{BASE_URL}}/auth/signup
 Content-Type: application/json
 
 {
-    "email": "ranasword@realemail.com",
+    "email": "vite@email.com",
     "password": "password real",
-    "user_type": "admin"
+    "user_type": "company",
+    "brn": "BRN123456",
+    "name": "Vite Corporation",
+    "industry": "Technology",
+    "website": "https://vitecorp.com",
+    "location": "123 Vite St, Tech City",
+    "contact_no": "123-456-7890"
 }
+
+# POST {{BASE_URL}}/auth/login
+# Content-Type: application/json
+
+# {
+#     "email": "ranasword@realemail.com",
+#     "password": "password real"
+#     }
+
+# ### get profile
+# GET {{BASE_URL}}/auth/profile
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsImVtYWlsIjoicmFuYXN3b3JkQHJlYWxlbWFpbC5jb20iLCJ1c2VyX3R5cGUiOiJzdHVkZW50IiwiaWF0IjoxNzY0MTYzNDg0LCJleHAiOjE3NjQxNjcwODR9.5K2FvDoDS-OvWovVlDfn0nIfVoMsoYcQHe2A4GITWDk
