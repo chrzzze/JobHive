@@ -13,12 +13,17 @@ const signupStudent = (first_name, middle_name, last_name, email, password, stud
         user_type: 'student'
     })
 }
-const signupAdmin = (name, email, password, role) => {
+const signupAdmin = (first_name, middle_name, last_name, email, password, admin_position, department, contact_no) => {
     return axios.post(baseURL + 'auth/signup', {
-        name,
+        first_name,
+        middle_name,
+        last_name,
         email,
         password,
-        role
+        admin_position,
+        department,
+        contact_no,
+        user_type: 'admin'
     })
 }
 const signupCompany = (name, email, password, brn, industry, website, location, contact_no) => {

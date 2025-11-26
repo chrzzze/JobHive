@@ -7,7 +7,7 @@ function verifyToken(req, res, next) {
     if (!auth) return res.status(401).json({ message: 'No token provided :('})
 
     //else
-    const parts = auth.split('')
+    const parts = auth.split(' ')
 
     //if format's wrong, fuck off
     if (parts.length !== 2 || parts[0] !== 'Bearer') return res.status(401).json({ message: 'what kinda token format is this??'})
@@ -26,10 +26,9 @@ function verifyToken(req, res, next) {
 
 function requireRole(...roles) {
     return (req, res, next) => {
-
-
-        if (!req.user) return res.status(401).json({ message: "Who even are you?? (Not authenticated)"})
-        if (!roles.includes (req.user.role)) return res.status(403).json({ message: "You don't have the right permissions :/"})
+        if (!req.user) return res.status(401).json({ message: "Not authenticated" })
+        const role = req.user.user_type
+        if (!roles.includes(role)) return res.status(403).json({ message: "You don't have the right permissions :/" })
         next()
     }
 }

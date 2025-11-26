@@ -2,29 +2,42 @@
 
 ### register 
 
-POST {{BASE_URL}}/auth/signup
-Content-Type: application/json
+# POST {{BASE_URL}}/auth/signup
+# Content-Type: application/json
 
-{
-    "email": "vite@email.com",
-    "password": "password real",
-    "user_type": "company",
-    "brn": "BRN123456",
-    "name": "Vite Corporation",
-    "industry": "Technology",
-    "website": "https://vitecorp.com",
-    "location": "123 Vite St, Tech City",
-    "contact_no": "123-456-7890"
-}
+# {
+#     "email": "vite@email.com",
+#     "password": "password real",
+#     "user_type": "company",
+#     "brn": "BRN123456",
+#     "name": "Vite Corporation",
+#     "industry": "Technology",
+#     "website": "https://vitecorp.com",
+#     "location": "123 Vite St, Tech City",
+#     "contact_no": "123-456-7890"
+# }
 
 # POST {{BASE_URL}}/auth/login
 # Content-Type: application/json
 
 # {
-#     "email": "ranasword@realemail.com",
+#     "email": "vite@email.com",
 #     "password": "password real"
-#     }
+# }
 
 # ### get profile
 # GET {{BASE_URL}}/auth/profile
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsImVtYWlsIjoicmFuYXN3b3JkQHJlYWxlbWFpbC5jb20iLCJ1c2VyX3R5cGUiOiJzdHVkZW50IiwiaWF0IjoxNzY0MTYzNDg0LCJleHAiOjE3NjQxNjcwODR9.5K2FvDoDS-OvWovVlDfn0nIfVoMsoYcQHe2A4GITWDk
+
+### create job listing
+POST {{BASE_URL}}/auth/job-listings
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImVtYWlsIjoidml0ZUBlbWFpbC5jb20iLCJ1c2VyX3R5cGUiOiJjb21wYW55IiwiaWF0IjoxNzY0MTc3MjY4LCJleHAiOjE3NjQxODA4Njh9.TWoF6bI3XOtdG0Z0_ux5rPE1MklP8a-FlpOVF4B6mEo
+
+{
+    "name": "Frontend Developer",
+    "company": "BRN123456",
+    "course": "Information Technology",
+    "description": "Entry-level frontend work",
+    "requirements": "Proficient in React, JavaScript, HTML, CSS"
+}
