@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student List | JobHive</title>
   <link rel="stylesheet" href="cssforalladmin.css">
+  <link rel="stylesheet" href="studentlist.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
@@ -36,6 +37,78 @@
             </nav>
         </aside>
 
+        <main class="main-content">
+          <div class="topbar">
+            <input type="text" id="searchInput" placeholder="Search student..">
+        </div>
+
+        <!-- Table -->
+        <div class="table-container"><div class="studentlist"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Contact</th>
+                        <th>Program</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                
+                <tbody id="studentTable">
+                    <!-- JS fills rows -->
+                </tbody>
+                
+            </table></div>
+          </div>
+
+      </main>
   </div>
+
+  <script>
+    // Sample student data from your screenshot
+const students = [
+    { name: "Aranzazu, Chesire Anne L.", contact: "0952-345-6789", program: "BS Information Tech", status: "Ongoing" },
+    { name: "Canubis, Jobert A.", contact: "0912-345-6789", program: "BS Information Tech", status: "Missing Requirements" },
+    { name: "Gabriela, Redd Moe V.", contact: "0935-987-6543", program: "BS Information Tech", status: "Missing Requirements" },
+    { name: "Galiza, Riz Niza D.", contact: "0912-456-7890", program: "BS Information Tech", status: "Ongoing" },
+    { name: "Lacapac, Miriya Jason B.", contact: "0932-345-6789", program: "BS Information Tech", status: "Complete" },
+    { name: "Lactones, John Cedrick L.", contact: "0902-345-6789", program: "BS Information Tech", status: "Missing Requirements" },
+    { name: "Lagroma, Gabriel F.", contact: "0912-389-5555", program: "BS Information Tech", status: "Missing Requirements" },
+    { name: "Obiang, Alieza Claire O.", contact: "0912-345-6789", program: "BS Information Tech", status: "Ongoing" },
+    { name: "Pelipegayo, Yves Zaverne E.", contact: "0958-345-6789", program: "BS Information Tech", status: "Ongoing" },
+    { name: "Teves, Khrishaine Joseph Mariel A.", contact: "0912-543-6789", program: "BS Information Tech", status: "Complete" }
+];
+
+// Fill table
+function loadTable(list) {
+    const table = document.getElementById("studentTable");
+    table.innerHTML = "";
+
+    list.forEach(s => {
+        table.innerHTML += `
+            <tr>
+                <td>${s.name}</td>
+                <td>${s.contact}</td>
+                <td>${s.program}</td>
+                <td>${s.status}</td>
+            </tr>
+        `;
+    });
+}
+
+loadTable(students);
+
+// Search filter
+document.getElementById("searchInput").addEventListener("input", function() {
+    const query = this.value.toLowerCase();
+
+    const filtered = students.filter(s =>
+        s.name.toLowerCase().includes(query)
+    );
+
+    loadTable(filtered);
+});
+
+  </script>
 </body>
 </html>

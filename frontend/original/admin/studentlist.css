@@ -1,0 +1,80 @@
+
+
+/* ---- MAIN CONTENT ---- */
+.main-content {
+    flex: 1;
+    padding: 20px 30px;
+    overflow-y: auto;
+}
+
+/* Search bar */
+.topbar {
+   width: 100%;
+   background-color: white;
+        padding: 3px 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;
+        font-size: 15px;
+        box-shadow: 0 0 3px rgb(30, 50, 69);
+}
+.topbar input {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 6px;
+    background: var(--white);
+    font-size: 15px;
+}
+
+/* TABLE */
+.table-container {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 10px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-dark);
+}
+
+th {
+    text-align: left;
+    padding: 12px;
+    background: var(--main-bg);
+    font-size: 14px;
+}
+
+td {
+    padding: 12px;
+    font-size: 14px;
+    color: var(--text-light);
+    border-bottom: 1px solid #e4e7ea;
+}
+
+tr:hover {
+    background: #f3f7fa;
+}
+
+.pagination {
+    margin-top: 10px;
+    color: var(--text-light);
+}
+
+
+.studentlist {
+    width: 100%;
+    border-collapse: collapse;
+    background: #b1c3cd;
+    border-radius: 10px;
+    overflow: auto;
+    box-shadow: 0 0 5px rgb(30, 50, 69);
+}
+
+.table-container{
+    background-color: #b1c3cd;
+    box-shadow: 0 0 5px rgb(30, 50, 69);
+}   
