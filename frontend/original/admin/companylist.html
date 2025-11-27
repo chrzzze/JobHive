@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Company List | JobHive</title>
   <link rel="stylesheet" href="cssforalladmin.css">
+  <link rel="stylesheet" href="companylist.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
@@ -35,6 +36,122 @@
                 <a href="index.html">Log out</a>
             </nav>
         </aside>
+        <main class="main-content">
+          <input id="searchInput" class="search-bar" placeholder="Search compan...">
+
+    <table id="companyTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th data-column="name">Name</th>
+                <th data-column="contact">Contact Person</th>
+                <th data-column="industry">Industry</th>
+                <th data-column="applications">Applications</th>
+                <th data-column="activeJobs">Active Jobs</th>
+                <th data-column="status">Status</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div class="pagination">
+        <button id="prevBtn">⟨</button>
+        <button id="nextBtn">⟩</button>
+    </div>
+        </main>
   </div>
+
+  <script>
+const companies = [
+    { name:"Accenture", contact:"Felix Petate\n0912-345-6789",
+      industry:"Information Technology", applications:6, activeJobs:5, status:"Pending" },
+
+    { name:"Alorica", contact:"Kalvin Fulgencio\n0912-345-6789",
+      industry:"Software Development", applications:7, activeJobs:8, status:"Active" },
+
+    { name:"EXL Service Philippines", contact:"Niana Guerrero\n0912-345-6789",
+      industry:"Cloud Computing", applications:7, activeJobs:2, status:"Active" },
+
+    { name:"Foundever", contact:"Esnyr Ranollo\n0912-345-6789",
+      industry:"Data Analytics", applications:12, activeJobs:1, status:"Active" },
+
+    { name:"Genpact Services LLC", contact:"Nadine Lustre\n0912-345-6789",
+      industry:"Cybersecurity", applications:8, activeJobs:2, status:"Active" },
+
+    { name:"IBEX Global", contact:"James Reid\n0912-345-6789",
+      industry:"Information Technology", applications:5, activeJobs:2, status:"Active" },
+
+    { name:"Optum", contact:"Issa Pressman\n0912-345-6789",
+      industry:"Information Technology", applications:10, activeJobs:4, status:"Active" },
+
+    { name:"Teleperformance", contact:"Mavie Wowie\n0912-345-6789",
+      industry:"Web Development", applications:5, activeJobs:3, status:"Active" }
+];
+
+// Pagination Settings
+let currentPage = 1;
+const rowsPerPage = 5;
+
+// Render Table
+function displayTable() {
+    const tbody = document.querySelector("#companyTable tbody");
+    tbody.innerHTML = "";
+
+    let filtered = filterSearch();
+    let start = (currentPage - 1) * rowsPerPage;
+    let pageData = filtered.slice(start, start + rowsPerPage);
+
+    for (let c of pageData) {
+        tbody.innerHTML += `
+            <tr>
+                <td><input type='checkbox'></td>
+                <td>${c.name}</td>
+                <td>${c.contact.replace("\n","<br>")}</td>
+                <td>${c.industry}</td>
+                <td>${c.applications}</td>
+                <td>${c.activeJobs}</td>
+                <td>${c.status}</td>
+            </tr>
+        `;
+    }
+}
+
+// Search Filtering
+function filterSearch() {
+    let keyword = document.getElementById("searchInput").value.toLowerCase();
+    return companies.filter(c =>
+        c.name.toLowerCase().includes(keyword) ||
+        c.industry.toLowerCase().includes(keyword) ||
+        c.status.toLowerCase().includes(keyword)
+    );
+}
+
+document.getElementById("searchInput").addEventListener("keyup", () => {
+    currentPage = 1;
+    displayTable();
+});
+
+// Sorting
+document.querySelectorAll("th[data-column]").forEach(th => {
+    th.addEventListener("click", () => {
+        let col = th.dataset.column;
+        companies.sort((a,b) => (a[col] > b[col] ? 1 : -1));
+        displayTable();
+    });
+});
+
+// Pagination
+document.getElementById("prevBtn").onclick = () => {
+    if (currentPage > 1) currentPage--;
+    displayTable();
+};
+document.getElementById("nextBtn").onclick = () => {
+    if (currentPage * rowsPerPage < filterSearch().length) currentPage++;
+    displayTable();
+};
+
+displayTable();
+</script>
+
 </body>
 </html>
